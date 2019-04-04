@@ -1,2 +1,17 @@
-<h1>Cart#view_order</h1>
-<p>Find me in app/views/cart/view_order.html.erb</p>
+<h2>My Cart</h2>
+<div>
+  <% total = 0 %>
+  <% @line_items.each do |line_item| %>
+    <li><%= line_item.product.name %></li>
+    <li><%= number_to_currency line_item.product.price %></li>
+    <li>Qty: <%= line_item.quantity %></li>
+    <li>Subtotal: <%= number_to_currency line_item.line_item_total %></li>
+    <% total += line_item.line_item_total %>
+  <% end %>
+  <strong>Grand Total: </strong> <%= number_to_currency total + (total * 0.42) %>
+</div>
+
+<div class="">
+  <%= link_to "EXTERMINATE!", clear_cart_path, class: "btn btn-danger" %>
+  <%= link_to "Proceed to Checkout?", checkout_path, class: "btn btn-success" %>
+</div>

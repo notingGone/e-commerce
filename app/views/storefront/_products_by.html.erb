@@ -17,17 +17,30 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel"><%= product.name%></h4>
+            <div class="modal-title text-left" id="myModalLabel">
+              <h3><%= link_to product.name, product %></h3>
+            </div>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
           </div>
           <div class="modal-body">
-            <p><%= image_tag product.image.url, class: "product-image" %></p>
+            <% if product.image.url.nil? %>
+              <%= image_tag 'no-image.jpg', class: "img-responsive product-image" %>
+            <% else %>
+              <%= image_tag product.image.url, class: "img-responsive product-image" %>
+            <% end %>
             <p><%= number_to_currency product.price %></p>
             <p><%= product.description %></p>
+            <p>made by <%= product.brand %></p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <p>
+              <%= form_tag add_to_cart_path do %>
+                <%= hidden_field_tag :product_id, product.id %>
+                <%= number_field_tag :quantity, 1, placeholder: "How many?" %>
+                <%= submit_tag "Add to Cart", class: "btn btn-primary" %>
+              <% end %>
+            </p>
           </div>
         </div>
       </div>
