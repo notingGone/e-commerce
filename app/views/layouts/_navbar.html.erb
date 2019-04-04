@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <%= link_to "Home", root_path, class: "navbar-brand" %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <ul class="dropdown-menu"
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -19,10 +20,9 @@
             <%= link_to 'Sign In', new_user_session_path, class: "nav nav-link" %>
           </li>
         <% end %>
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "View Cart", view_order_path %></li>
+        <li><%= link_to "View Cart", view_order_path, class: "nav nav-link" %></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
+          <a href="#" class="nav nav-link dropdown-toggle" data-toggle="dropdown" role="button">Categories<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <% @categories.each do |category| %>
               <li><%= link_to category.name, categorical_path(category_id: category.id) %></li>
@@ -30,7 +30,7 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brands<span class="caret"></span></a>
+          <a href="#" class="nav nav-link dropdown-toggle" data-toggle="dropdown" role="button"></span></a>
           <ul class="dropdown-menu">
             <% @brands.each do |brand| %>
               <li><%= link_to brand, branding_path(brand: brand) %></li>

@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_order
+    debugger
     if session[:order_id]
       return Order.find(session[:order_id])
     else

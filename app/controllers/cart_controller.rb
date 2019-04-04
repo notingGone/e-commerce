@@ -3,7 +3,8 @@ class CartController < ApplicationController
 
   def add_to_cart
     @order = current_order
-    line_item = LineItem.create(product_id: params[:product_id], quantity: params[:quantity])
+    # line_item = LineItem.create(product_id: params[:product_id], quantity: params[:quantity])
+    line_item = LineItem.create(line_item_params)
     @order.save
     session[:order_id] = @order.id
     line_item.update(line_item_total: (line_item.quantity * line_item.product.price))
@@ -40,4 +41,11 @@ class CartController < ApplicationController
       session[:order_id] = nil
     end
   end
+
+  private
+
+  def line_item_params
+    params.require(:line_item).permit(:product_id, :quantity)
+  end
+
 end
