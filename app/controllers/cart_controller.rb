@@ -20,7 +20,7 @@ class CartController < ApplicationController
   end
 
   def clear_cart
-    LineItem.delete_all
+    current_order.line_items.delete_all
     redirect_back(fallback_location: root_path)
   end
 
