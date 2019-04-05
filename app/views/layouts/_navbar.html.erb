@@ -5,7 +5,7 @@
       <%= link_to 'New Product', new_product_path, class: "btn btn-sm btn-info" %>
     <% end %>
     <%# debugger %>
-    <%= link_to " Cart", view_order_path, class: "nav nav-link fa fa-shopping-cart" %>
+    <%= link_to " Cart (#{@cart_count ? @cart_count : 0})", view_order_path, class: "nav nav-link fa fa-shopping-cart" %>
     <div class="dropdown">
       <a href="#" class="nav nav-link dropdown-toggle" data-toggle="dropdown" role="button">Categories<span class="caret"></span></a>
       <ul class="dropdown-menu">
@@ -24,14 +24,15 @@
       </ul>
     </div>
     <div class="dropdown">
-      <a href="#" class="nav nav-link dropdown-toggle" data-toggle="dropdown" role="button"><%= current_user.name %>
-        <span class="caret"></span></a>
+      <a href="#" class="nav nav-link dropdown-toggle" data-toggle="dropdown" role="button">
+        <%= current_user.nil? ? "Guest" : current_user.name %>
+        <span class="caret"></span>
+      </a>
       <ul class="dropdown-menu">
-        <li>
-          <%= link_to 'Edit Profile', edit_user_registration_path, class: "nav nav-link" %>
-        </li>
-        <li>
-          <% if user_signed_in? %>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to 'Edit Profile', edit_user_registration_path, class: "nav nav-link" %>
+          </li>
           <li >
             <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav nav-link" %>
           </li>

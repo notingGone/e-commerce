@@ -1,9 +1,9 @@
 <div class="row">
   <% @products.each do |product| %>
     <div class="col-md-4">
-      <div class="well center-it">
+      <div class="card p-2 m-2 center-it product-thumb-card ">
         <p><%= image_tag product.image.url, class: "product-image" %></p>
-        <h3><%= link_to product.name, product %></h3>
+        <h4><%= link_to product.name, product %></h4>
         <p><%= number_to_currency product.price %></p>
         <p>
           <a href='#' data-toggle="modal" data-target="#myModal_<%= product.id %>">
@@ -32,6 +32,7 @@
             <% end %>
             <p><%= number_to_currency product.price %></p>
             <p><%= product.description %></p>
+            <p><strong>Qty: </strong> <%= product.quantity %></p>
             <p>made by <%= product.brand %></p>
           </div>
 

@@ -16,8 +16,4 @@ class StorefrontController < ApplicationController
     @products = Product.where(brand: params[:brand])
     @brand = params[:brand]
   end
-
-  def set_line_item
-    @line_item = LineItem.new
-  end
 end

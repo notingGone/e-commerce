@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_line_item, only: :show
   authorize_resource except: :show
   # GET /products
   # GET /products.json
@@ -11,7 +12,6 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-
   end
 
   # GET /products/new

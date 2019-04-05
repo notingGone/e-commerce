@@ -1,9 +1,10 @@
-<h2>Thanks for shopping with us!</h2>
-<p>Let's review your order:</p>
-<% @order.order_items.each do |k,v| %>
-<ul>
-  <li><%= Product.find(k).name + ',' + v %></li>
-</ul>
+<h2>Order confirmation for order: <%= @order_confirmation.id %></h2>
+<p>Thanks for shopping with us!</p>
+<% @order_confirmation.order_items.each do |k,v| %>
+  <ul>
+    <li><%= Product.find(k).name + ',' + v.to_s %></li>
+  </ul>
+<% end %>
 <p>
-  <strong>Order Total: </strong><%= number_to_currency(@order.grand_total) %>
+  <strong>Order Total: </strong><%= number_to_currency(@order_confirmation.grand_total) %>
 </p>
