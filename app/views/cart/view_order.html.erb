@@ -1,13 +1,19 @@
-<h2>My Cart</h2>
+<h2>
+  <% if user_signed_in? %>
+    <%= current_user.name %>'s Cart
+  <% else %>
+    Guest's Cart
+  <% end %>
+</h2>
 <div>
   <ul class="list-unstyled">
     <% total = 0 %>
     <% @line_items.each do |line_item| %>
       <li class="media my-2">
         <% if line_item.product.image.url.nil? %>
-          <%= image_tag 'no-image.jpg', class: "img-fluid product-image" %>
+          <%= image_tag 'no-image.jpg', class: "img-fluid product-image mx-2" %>
         <% else %>
-          <%= image_tag line_item.product.image.url, class: "img-fluid-3 product-image" %>
+          <%= image_tag line_item.product.image.url, class: "img-fluid product-image mx-2" %>
         <% end %>
         <div class="media-body">
           <h5 class="mt-0"><%= line_item.product.name %></h5>
