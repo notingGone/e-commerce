@@ -1,8 +1,12 @@
 <div class="row">
   <% @products.each do |product| %>
     <div class="col-md-4">
-      <div class="card p-2 m-2 center-it product-thumb-card ">
-        <p><%= image_tag product.image.url, class: "product-image" %></p>
+      <div class="card p-2 m-1 product-thumb-card ">
+        <% if product.image.url.nil? %>
+          <%= image_tag 'no-image.jpg', class: "product-image" %>
+        <% else %>
+          <%= image_tag product.image.url, class: "product-image" %>
+        <% end %>
         <h4><%= link_to product.name, product %></h4>
         <p><%= number_to_currency product.price %></p>
         <p>

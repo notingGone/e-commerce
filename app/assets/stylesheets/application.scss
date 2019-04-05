@@ -20,9 +20,19 @@ body {
 }
 
 .product-image {
-  height: 100px;
+  // height: 100px;
+  max-width: 95%;
+  height: auto;
 }
 
 .product-thumb-card {
-  height: 280px;
+  height: auto;
+  border: none;
+}
+
+.product-thumb-card:hover {
+  border-width: 2;
+  border-color: blue;
+  border-radius: 5px;
+  // color:
 }

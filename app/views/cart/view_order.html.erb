@@ -4,7 +4,11 @@
     <% total = 0 %>
     <% @line_items.each do |line_item| %>
       <li class="media my-2">
-        <%= image_tag line_item.product.image.url, class: "mr-3 product-image" %>
+        <% if line_item.product.image.url.nil? %>
+          <%= image_tag 'no-image.jpg', class: "img-fluid product-image" %>
+        <% else %>
+          <%= image_tag line_item.product.image.url, class: "img-fluid-3 product-image" %>
+        <% end %>
         <div class="media-body">
           <h5 class="mt-0"><%= line_item.product.name %></h5>
           <p>Qty: <%= line_item.quantity %> @ <%= number_to_currency line_item.product.price %> ea.</p>
