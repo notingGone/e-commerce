@@ -1,4 +1,6 @@
 class StorefrontController < ApplicationController
+  before_action :set_line_item
+
   def all_items
     @products = Product.all
   end
@@ -13,5 +15,9 @@ class StorefrontController < ApplicationController
     # @products = Product.all.order(:brand)
     @products = Product.where(brand: params[:brand])
     @brand = params[:brand]
+  end
+
+  def set_line_item
+    @line_item = LineItem.new
   end
 end

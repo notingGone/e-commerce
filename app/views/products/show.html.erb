@@ -45,12 +45,13 @@
 
 <div class="col-md-6">
   <div class="card p-3">
-    <%= form_tag add_to_cart_path do %>
+    <%= form_for(LineItem.new) do |f| %>
       <p>
-        <%= hidden_field_tag :product_id, @product.id %>
-        <%= number_field_tag :quantity, 1, placeholder: "How many?" %>
+        <%= f.hidden_field :product_id, @product.id %>
+        <%= f.number_field :quantity, 1, placeholder: "How many?" %>
+        <%= hidden_field_tag :order_id, current_order.id  %>
       </p>
-      <p><%= submit_tag "Add to Cart", class: "btn btn-primary" %></p>
+      <p><%= f.submit_tag "Add to Cart", class: "btn btn-primary" %></p>
     <% end %>
     <div class="card-footer">
       <% if user_signed_in? %>
@@ -58,7 +59,7 @@
           <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-sm btn-warning" %> |
         <% end %>
         <% if can? :delete, Product %>
-          <%= link_to "Destroy Product!", @product, class: "btn btn-sm btn-danger label-alert", method: :delete, data: {confirm: "Confirm Delete Product"} %>
+          <%= link_to "!Destroy!", @product, class: "btn btn-sm btn-danger label-alert", method: :delete, data: {confirm: "Confirm Delete Product"} %>
         <% end %>
       <% end %>
     </div>
