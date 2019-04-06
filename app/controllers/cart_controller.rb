@@ -1,5 +1,5 @@
 class CartController < ApplicationController
-  before_action :authenticate_user!, except: [:add_to_cart, :view_order, :clear_cart]
+  before_action :authenticate_user!, except: [:add_to_cart, :view_order, :clear_cart, :delete_item]
 
   def add_to_cart
     # debugger
@@ -21,6 +21,11 @@ class CartController < ApplicationController
 
   def clear_cart
     current_order.line_items.delete_all
+    redirect_back(fallback_location: root_path)
+  end
+
+  def delete_item
+    current_order.line_items.find_by(params[:product_id]).delete
     redirect_back(fallback_location: root_path)
   end
 

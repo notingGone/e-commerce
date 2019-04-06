@@ -16,7 +16,10 @@
           <%= image_tag line_item.product.image.url, class: "img-fluid product-image mx-2" %>
         <% end %>
         <div class="media-body">
-          <h5 class="mt-0"><%= line_item.product.name %></h5>
+          <h5 class="mt-0">
+            <%= line_item.product.name %>
+            <%= link_to "Remove from Cart", delete_item_path(product_id: line_item.product_id), class: "btn btn-sm btn-warning" %>
+          </h5>
           <p>Qty: <%= line_item.quantity %> @ <%= number_to_currency line_item.product.price %> ea.</p>
           <p><strong><%= number_to_currency line_item.line_item_total %></strong></p>
         </div>
