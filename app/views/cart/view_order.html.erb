@@ -34,18 +34,16 @@
 
       </ul>
       <div class="card-footer">
+        <p class="">Tax: <%= number_to_currency total * 0.07 %></p>
+        <strong>Grand Total: </strong> <%= number_to_currency total + (total * 0.07) %><br>
       </div>
-      </div>
-
     </div>
   </div>
 
   <div class="row">
-    <p>Tax: <%= number_to_currency total * 0.07 %></p>
-    <strong>Grand Total: </strong> <%= number_to_currency total + (total * 0.07) %><br>
   </div>
-  <div class="row">
-    <%= link_to "EXTERMINATE!", clear_cart_path, class: "btn btn-danger" %>
-    <%= link_to "Proceed to Checkout?", checkout_path, class: "btn btn-success" %>
+  <div class="row mt-2">
+    <%= link_to "EXTERMINATE!", clear_cart_path, class: "btn btn-sm btn-danger mx-1" %>
+    <%= link_to "Proceed to Checkout?", checkout_path, class: "btn btn-sm btn-success mx-1" %>
   </div>
 </div>

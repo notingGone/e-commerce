@@ -41,7 +41,7 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
             <%= form_for @line_item, url: add_to_cart_path do |f| %>
               <div class="form-group">
                 <%= f.hidden_field :product_id, value: product.id %>
@@ -52,7 +52,7 @@
               </span>
 fluid
               <span class="form-group">
-                <%= f.submit "Add to Cart", class: "btn btn-primary" %>
+                <%= f.submit "Add to Cart", class: "btn btn-sm btn-primary" %>
               </span>
             <% end %>
           </div>
