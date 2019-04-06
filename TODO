@@ -5,13 +5,11 @@ remove all instances of order_items from this project
 
 validate qty for line items:
 
-  must be:
-   present,
-   positive,
-   non-zero,
-   not more than product.quantity
+  return error message (flash) when validation fails
 
 add to quantity instead of adding another line-item
 for duplicate product_id
 
 fix redirect_back in cart#clear_cart
+          or
+redirect to root, with a flash message
