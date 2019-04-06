@@ -1,38 +1,51 @@
-<h2>
-  <% if user_signed_in? %>
-    <%= current_user.name %>'s Cart
-  <% else %>
-    Guest's Cart
-  <% end %>
-</h2>
-<div>
-  <ul class="list-unstyled">
+<div class="container">
+  <div class="row">
+    <h2>
+      <% if user_signed_in? %>
+      <%= current_user.name %>'s Cart
+      <% else %>
+      Guest's Cart
+      <% end %>
+    </h2>
+  </div>
+  <div class="row">
+    <div class="card">
+      <ul class="list-unstyled">
 
-    <% total = 0 %>
-    <% @line_items.each do |line_item| %>
-      <li class="media my-2">
-        <% if line_item.product.image.url.nil? %>
-          <%= image_tag 'no-image.jpg', class: "img-fluid product-image mx-2" %>
-        <% else %>
-          <%= image_tag line_item.product.image.url, class: "img-fluid product-image mx-2" %>
+        <% total = 0 %>
+        <% @line_items.each do |line_item| %>
+        <li class="media my-2">
+          <% if line_item.product.image.url.nil? %>
+          <%= image_tag 'no-image.jpg', class: "cart-image mx-2" %>
+          <% else %>
+          <%= image_tag line_item.product.image.url, class: "cart-image mx-2" %>
+          <% end %>
+          <div class="media-body">
+            <h5 class="mt-0">
+              <%= line_item.product.name %>
+            </h5>
+            <div class="my-0">Qty: <%= line_item.quantity %> @ <%= number_to_currency line_item.product.price %> ea.</div>
+            <div class="my-0"><strong><%= number_to_currency line_item.line_item_total %></strong></div>
+            <div class="my-0"><%= link_to "Remove from Cart", delete_item_path(product_id: line_item.product.id), method: "post", class: "badge badge-warning" %></div>
+          </div>
+        </li>
+        <% total += line_item.line_item_total %>
         <% end %>
-        <div class="media-body">
-          <h5 class="mt-0">
-            <%= line_item.product.name %>
-            <%= link_to "Remove from Cart", delete_item_path(product_id: line_item.product.id), method: "post", class: "btn btn-sm btn-warning" %>
-          </h5>
-          <p>Qty: <%= line_item.quantity %> @ <%= number_to_currency line_item.product.price %> ea.</p>
-          <p><strong><%= number_to_currency line_item.line_item_total %></strong></p>
-        </div>
-      </li>
-      <% total += line_item.line_item_total %>
-    <% end %>
-  </ul>
-  Tax: <%= number_to_currency total * 0.07 %><br>
-  <strong>Grand Total: </strong> <%= number_to_currency total + (total * 0.07) %>
-</div>
 
-<div class="">
-  <%= link_to "EXTERMINATE!", clear_cart_path, class: "btn btn-danger" %>
-  <%= link_to "Proceed to Checkout?", checkout_path, class: "btn btn-success" %>
+      </ul>
+      <div class="card-footer">
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <p>Tax: <%= number_to_currency total * 0.07 %></p>
+    <strong>Grand Total: </strong> <%= number_to_currency total + (total * 0.07) %><br>
+  </div>
+  <div class="row">
+    <%= link_to "EXTERMINATE!", clear_cart_path, class: "btn btn-danger" %>
+    <%= link_to "Proceed to Checkout?", checkout_path, class: "btn btn-success" %>
+  </div>
 </div>

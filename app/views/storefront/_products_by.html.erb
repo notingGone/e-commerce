@@ -30,9 +30,9 @@
 
           <div class="modal-body">
             <% if product.image.url.nil? %>
-              <%= image_tag 'no-image.jpg', class: "img-responsive product-image" %>
+              <%= image_tag 'no-image.jpg', class: "product-image" %>
             <% else %>
-              <%= image_tag product.image.url, class: "img-responsive product-image" %>
+              <%= image_tag product.image.url, class: "product-image" %>
             <% end %>
             <p><%= number_to_currency product.price %></p>
             <p><%= product.description %></p>
@@ -50,7 +50,7 @@
               <span class="form-group">
                 <%= f.number_field :quantity, value: 1 %>
               </span>
-              
+fluid
               <span class="form-group">
                 <%= f.submit "Add to Cart", class: "btn btn-primary" %>
               </span>

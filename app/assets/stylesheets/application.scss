@@ -15,18 +15,48 @@
 @import 'bootstrap';
 @import 'font-awesome';
 
+html {
+  // background: -webkit-gradient(left top, right bottom, color-stop(3%, rgba(207,171,8,1)), color-stop(16%, rgba(153,161,3,1)), color-stop(44%, rgba(28,99,20,1)), color-stop(48%, rgba(27,94,18,1)), color-stop(71%, rgba(24,67,6,1)), color-stop(82%, rgba(23,54,0,1)), color-stop(98%, rgba(24,51,0,1)));
+  // background: -webkit-linear-gradient(-45deg, rgba(207,171,8,1) 3%, rgba(153,161,3,1) 16%, rgba(28,99,20,1) 44%, rgba(27,94,18,1) 48%, rgba(24,67,6,1) 71%, rgba(23,54,0,1) 82%, rgba(24,51,0,1) 98%);
+  // background: -o-linear-gradient(-45deg, rgba(207,171,8,1) 3%, rgba(153,161,3,1) 16%, rgba(28,99,20,1) 44%, rgba(27,94,18,1) 48%, rgba(24,67,6,1) 71%, rgba(23,54,0,1) 82%, rgba(24,51,0,1) 98%);
+  // background: -ms-linear-gradient(-45deg, rgba(207,171,8,1) 3%, rgba(153,161,3,1) 16%, rgba(28,99,20,1) 44%, rgba(27,94,18,1) 48%, rgba(24,67,6,1) 71%, rgba(23,54,0,1) 82%, rgba(24,51,0,1) 98%);
+  // background: linear-gradient(135deg, rgba(207,171,8,1) 3%, rgba(153,161,3,1) 16%, rgba(28,99,20,1) 44%, rgba(27,94,18,1) 48%, rgba(24,67,6,1) 71%, rgba(23,54,0,1) 82%, rgba(24,51,0,1) 98%);
+  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cfab08', endColorstr='#183300', GradientType=1 );
+  // background-repeat: no-repeat;
+//   background: rgba(228, 194, 107, 1.0);
+// background: -webkit-linear-gradient(top left, rgba(228, 194, 107, 1.0), rgba(1, 52, 17, 1.0));
+// background: -moz-linear-gradient(top left, rgba(228, 194, 107, 1.0), rgba(1, 52, 17, 1.0));
+// background: linear-gradient(top left, rgba(228, 194, 107, 1.0), rgba(1, 52, 17, 1.0));
+
+// background: -moz-linear-gradient(315deg, #DEE647 0%, #DEE647 9%, #021A03 86%, #021A03 100%); /* ff3.6+ */
+// background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #DEE647), color-stop(9%, #DEE647), color-stop(86%, #021A03), color-stop(100%, #021A03)); /* safari4+,chrome */
+// background: -webkit-linear-gradient(315deg, #DEE647 0%, #DEE647 9%, #021A03 86%, #021A03 100%); /* safari5.1+,chrome10+ */
+// background: -o-linear-gradient(315deg, #DEE647 0%, #DEE647 9%, #021A03 86%, #021A03 100%); /* opera 11.10+ */
+// background: -ms-linear-gradient(315deg, #DEE647 0%, #DEE647 9%, #021A03 86%, #021A03 100%); /* ie10+ */
+// background: linear-gradient(135deg, #DEE647 0%, #DEE647 9%, #021A03 86%, #021A03 100%); /* w3c */
+// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#DEE647', endColorstr='#021A03',GradientType=1 ); /* ie6-9 */
+}
+
 body {
   padding-top: 50px;
+  padding-left: 25px;
+  // background: none;
 }
 
 .product-image {
   // height: 100px;
-  max-width: 95%;
-  max-height: 100px;
+  max-width: 75%;
+  // max-height: 75%;
   // height: auto;
 }
 
+.cart-image {
+  max-width: 100px;
+  height: auto;
+}
+
 .product-thumb-card {
+
   height: auto;
   border: none;
 }
