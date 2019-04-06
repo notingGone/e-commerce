@@ -25,7 +25,7 @@ class CartController < ApplicationController
   end
 
   def delete_item
-    current_order.line_items.find_by(params[:product_id]).delete
+    current_order.line_items.find_by(product_id: params[:product_id]).delete
     redirect_back(fallback_location: root_path)
   end
 
