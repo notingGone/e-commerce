@@ -1,0 +1,17 @@
+remove all instances of order_items from this project
+
+  it is used once in app/views/cart/checkout.html.erb
+  but can be easily replaced
+
+validate qty for line items:
+
+  must be:
+   present,
+   positive,
+   non-zero,
+   not more than product.quantity
+
+add to quantity instead of adding another line-item
+for duplicate product_id
+
+fix redirect_back in cart#clear_cart
