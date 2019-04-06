@@ -2,6 +2,9 @@ remove all instances of order_items from this project
   it is used once in app/views/cart/checkout.html.erb
   but can be easily replaced
 
+Goes with above:
+re-make from scratch app/views/cart/checkout.html.erb
+
 when validation fails qty for line items:
   return error message (flash)
 
