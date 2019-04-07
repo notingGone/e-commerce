@@ -51,7 +51,7 @@
       </div>
 
       <span class="form-group">
-        <%= f.number_field :quantity, value: 1 %>
+        <%= f.number_field :quantity, value: 1, min: 1, max: @product.quantity %>
       </span>
 
       <span class="form-group">
