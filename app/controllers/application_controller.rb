@@ -21,9 +21,9 @@ class ApplicationController < ActionController::Base
 
   def current_order
     if session[:order_id]
-      return Order.find(session[:order_id])
+      Order.find(session[:order_id])
     else
-      return user_signed_in? ? Order.create(user_id: current_user.id) : Order.new
+      user_signed_in? ? Order.create(user_id: current_user.id) : Order.new
     end
   end
 
