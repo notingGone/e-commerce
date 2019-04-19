@@ -18,7 +18,6 @@ gem 'better_errors', group: :development
 gem 'binding_of_caller'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'figaro'
-# gem 'certified'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
